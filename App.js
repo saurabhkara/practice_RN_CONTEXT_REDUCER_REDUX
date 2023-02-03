@@ -1,20 +1,20 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import { useContext, useState } from "react";
 import Board from "./components/Board";
-import ContextWrapper from "./context/ContextWrapper";
+// import ContextWrapper from "./context/ContextWrapper";
+import store from './redux/store'
+import { Provider } from "react-redux";
 
 export default function App() {
-  const [data, setData] = useState("Saurabh");
-
+  
   return (
-    <ContextWrapper>
+    <Provider store={store}>
       <View style={styles.container}>
         <Text>Jai Shree Krishna </Text>
         <StatusBar style="auto" />
         <Board />
       </View>
-    </ContextWrapper>
+    </Provider>
   );
 }
 
