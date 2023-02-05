@@ -1,20 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import { getProducts } from "./actioncCreator";
 
 const cartSlice = createSlice({
     name:'cart',
     initialState:{
-        counter:0
+        isLoading:false,
+        products:[],
+        cart:[],
     },
     reducers:{
-        increment:(state)=>{
-            state.counter +=1
+        addProducts:(state, action)=>{
+            state.cart.push(action.payload)
         },
-        decrement :(state)=>{
-            state.counter -=1
+        removeProducts :(state, action)=>{
+            state.cart.pop()
+        }
+    },
+    extraReducers:{
+        [getProducts.fulfilled]:(state, action)=>{
+            state.products = action.payload;
+            state.isLoading = false
         },
-        incrementByUnits:(state, action)=>{
-            state.counter +=action.payload
+        [getProducts.pending]:(state, action)=>{
+            state.isLoading = true;
+        },
+        [getProducts.rejected]:(state, action)=>{
+            state.isLoading = false;
+            state.error = 'error occured'
         }
     }
 })

@@ -1,8 +1,9 @@
 import { View, Text, TouchableOpacity } from 'react-native'
-import React ,{useContext}from 'react';
+import React ,{useContext, useEffect}from 'react';
 // import { ContextW } from '../context/ContextWrapper';
 import { useDispatch, useSelector } from 'react-redux';
 import { increment, incrementByUnits } from '../redux/reducer';
+import { getProducts } from '../redux/actioncCreator';
 
 export default function Board() {
     // const [state, dispatch] = useContext(ContextW);
@@ -10,6 +11,10 @@ export default function Board() {
     const dispatch = useDispatch();
     const state = useSelector(state=>state);
     console.log(state);
+
+    useEffect(()=>{
+      dispatch(getProducts())
+    },[])
   return (
     <View>
       <Text>Board</Text>
