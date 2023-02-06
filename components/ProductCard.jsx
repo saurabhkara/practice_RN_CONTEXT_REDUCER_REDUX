@@ -1,7 +1,8 @@
 import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addProducts, removeProducts } from "../redux/reducer";
+import { addProducts } from "../redux/reducer";
+
 
 const ProductCard = ({ item }) => {
   const dispatch = useDispatch();
