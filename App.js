@@ -8,7 +8,8 @@ import CartScreen from "./screens/CartScreen.jsx";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MainScreen from "./screens/MainScreen";
-import Form from "./screens/Form";
+import Login from "./screens/Login";
+import Signup from "./screens/Signup";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,10 +23,11 @@ export default function App() {
       </View> */}
 
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="signup">
           <Stack.Screen name="main" component={MainScreen} />
           <Stack.Screen name="cart" component={CartScreen} />
-          <Stack.Screen name="form" component={Form} />
+          <Stack.Screen name="login" component={Login} />
+          <Stack.Screen name="signup" component={Signup} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
