@@ -10,6 +10,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MainScreen from "./screens/MainScreen";
 import Login from "./screens/Login";
 import Signup from "./screens/Signup";
+import CalenderScreen from "./screens/CalenderScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -23,7 +24,8 @@ export default function App() {
       </View> */}
 
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="signup">
+        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="calender">
+          <Stack.Screen name="calender" component={CalenderScreen} />
           <Stack.Screen name="main" component={MainScreen} />
           <Stack.Screen name="cart" component={CartScreen} />
           <Stack.Screen name="login" component={Login} />
